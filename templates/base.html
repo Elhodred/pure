@@ -22,22 +22,51 @@
         <title>{% block title %}{{ SITENAME }} // {{ TAGLINE }}{% endblock title %}</title>
     {% endblock head %}
 
-    {% if FAVICON %}
-    <link href="{{ SITEURL }}/{{ FAVICON }}" rel="icon">
-    {% endif %}
+    <!-- For Chrome for Android: -->
+    <link rel="icon" sizes="192x192" href="{{ SITE_URL }}/touch-icon-192x192.png">
+    <link rel="icon" sizes="96x96" href="{{ SITE_URL }}/touch-icon-96x96.png">
+    <link rel="icon" sizes="32x32" href="{{ SITE_URL }}/touch-icon-32x32.png">
+    <link rel="icon" sizes="16x16" href="{{ SITE_URL }}/touch-icon-16x16.png">
+    <!-- For iPhone 6 Plus with @3× display: -->
+    <link rel="apple-touch-icon-precomposed" sizes="180x180" href="{{ SITE_URL }}/apple-touch-icon-180x180-precomposed.png">
+    <!-- For iPad with @2× display running iOS ≥ 7: -->
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="{{ SITE_URL }}/apple-touch-icon-152x152-precomposed.png">
+    <!-- For iPad with @2× display running iOS ≤ 6: -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{ SITE_URL }}/apple-touch-icon-144x144-precomposed.png">
+    <!-- For iPhone with @2× display running iOS ≥ 7: -->
+    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="{{ SITE_URL }}/apple-touch-icon-120x120-precomposed.png">
+    <!-- For iPhone with @2× display running iOS ≤ 6: -->
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{ SITE_URL }}/apple-touch-icon-114x114-precomposed.png">
+    <!-- For the iPad mini and the first- and second-generation iPad (@1× display) on iOS ≥ 7: -->
+    <link rel="apple-touch-icon-precomposed" sizes="76x76" href="{{ SITE_URL }}/apple-touch-icon-76x76-precomposed.png">
+    <!-- For the iPad mini and the first- and second-generation iPad (@1× display) on iOS ≤ 6: -->
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{ SITE_URL }}/apple-touch-icon-72x72-precomposed.png">
+    <!-- For non-Retina iPhone, iPod Touch, and Android 2.1+ devices: -->
+    <link rel="apple-touch-icon-precomposed" href="{{ SITE_URL }}/apple-touch-icon-precomposed.png"><!-- 57×57px -->
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
 
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.3.0/pure-min.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="{{ SITEURL }}/theme/css/pure.css">
+    <link rel="stylesheet" href="{{ SITEURL }}/assets/tipuesearch/tipuesearch.css">
     {% block head_css %}{% endblock %}
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
     {% block head_js %}{% endblock %}
 </head>
 
 <body>
     {% block content %}
     {% endblock %}
+    {% block script %}
     <script>
         var $top = $('.go-top');
 
@@ -62,6 +91,8 @@
             event.preventDefault();
         });
     </script>
+    {% endblock script %}
+    <script src="/assets/auto-target.js"></script>
     {% include 'analytics.html' %}
 </body>
 </html>

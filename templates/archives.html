@@ -14,6 +14,8 @@
                     <a href="{{ SITEURL }}/{{ article.author.url }}" title="See posts by {{ article.author }}">
                         {% if article.author_gravatar %}
                             <img class="avatar" alt="{{ article.author }}" src="{{ article.author_gravatar }}">
+                        {% else %}
+                            <img class="avatar" alt="{{ article.author }}" src="{{ PROFILE_IMAGE_URL }}">
                         {% endif %}
                     </a>
                     <h5 class="archive-date">{{ article.date|strftime('%Y') }}</h5>
